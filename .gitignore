@@ -1,0 +1,7 @@
+.venv
+venv
+db.sqlite
+__pycache__
+templates
+.vscode/settings.json
+.DS_Store

@@ -2,20 +2,27 @@ from flask import jsonify
 from flask import request
 from flask import Blueprint
 from models import PickCard, db
+import os
 import datetime
 import requests
 import random
 from . import api
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+f = open(basedir+'/urls.dat', 'r')
+webhook_url = f.read()
+f.close()
+
 
 def send_slack(msg):
-    res = requests.post('https://hooks.slack.com/services/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', json={
+    print(webhook_url)
+    res = requests.post(webhook_url, json={
         'text': msg
     }, headers={'Content-Type': 'application/json'})
     print(res)
 
 
-@api.route('/slack/card', methods=['POST'])
+@ api.route('/slack/card', methods=['POST'])
 def receive_slack():
     res = request.form['text'].split(' ')
     cmd, *args = res

@@ -9,7 +9,7 @@ from . import api
 
 
 def send_slack(msg):
-    res = requests.post('https://hooks.slack.com/services/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', json={
+    res = requests.post('https://hooks.slack.com/services/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', json={
         'text': msg
     }, headers={'Content-Type': 'application/json'})
 
@@ -37,7 +37,7 @@ def receive_slack():
 
         print(user_name, card_subject, card_number)
 
-        send_slack('"%s"님께서 "%s"에 대한 카드를 Card "%s"번을 뽑으셨습니다.' % (
+        send_slack('"%s"님께서 "%s"에 대한 카드 "%s"번을 뽑으셨습니다.' % (
             str(user_name), str(card_subject), str(card_number)))  # 사용자, 주제, 카드번호
 
     elif cmd == 'cancle':

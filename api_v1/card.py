@@ -9,7 +9,7 @@ from . import api
 
 
 def send_slack(msg):
-    res = requests.post('https://hooks.slack.com/services/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', json={
+    res = requests.post('https://hooks.slack.com/services/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', json={
         'text': msg
     }, headers={'Content-Type': 'application/json'})
 
